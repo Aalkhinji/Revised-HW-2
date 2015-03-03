@@ -1,8 +1,8 @@
 ---
 title: "HW2Aisha"
-output: html_document
-   keep_md: yes
-   
+output:
+    html_document:
+       keep_md: yes
 ---
 
 # **HomeWork#2**
@@ -15,11 +15,11 @@ This should be done with a single query, showing the title, the GSE accession nu
 
 
 
-## Creat a connection to GEOdatabase.
+## Creating connection to GEOdatabase.
 ```{r,echo=TRUE}
 source("http://bioconductor.org/biocLite.R")
 biocLite()
-biocLite(e("GEOmetadb", "GEOquery")
+biocLite(c("GEOmetadb", "GEOquery"))
 ```
 
 ##Load the library
@@ -28,6 +28,15 @@ library(GEOmetadb)
 
 ```
 
+
+
+```{r}
+if(!file.exists("GEOmetadb.sqlite"))
+{
+  # Download database only if it's not done already
+  getSQLiteFile()
+}
+```
 
 ##Finding data
 
@@ -48,7 +57,7 @@ res
 ```
  
 
-##Using data table , find the data and produce the result in one code. 
+##Using data table, find the data and produce the result in one code. 
 
 
 I tried different data table formate  since I failed on my first attempt 
